@@ -54,6 +54,11 @@ function(get_src LISTNAME)
 
 endfunction(get_src)
 
+#TCP Submodule
+#header only lib
+get_include(TCP_INCLUDE TCP)
+include_directories(${TCP_INCLUDE})
+
 
 #TMP
 
