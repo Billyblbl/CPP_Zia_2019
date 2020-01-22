@@ -1,0 +1,3 @@
+[submodule "API"]
+	path = API
+	url = https://github.com/Billyblbl/EPITECH_Zia_API_Candidate.git

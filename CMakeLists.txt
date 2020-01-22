@@ -60,8 +60,11 @@ endfunction(get_src)
 message(STATUS "Configuring [temporary bin] Build")
 get_include(TMP_INCLUDE tmp)
 get_src(TMP_SRC tmp)
-include_directories(${TMP_INCLUDE})
 add_executable(tmp ${TMP_SRC})
+target_include_directories(tmp PUBLIC ${TMP_INCLUDE})
+
+add_subdirectory(API)
+target_link_libraries(tmp ZIAAPI)
 
 
 #DOXYGEN
