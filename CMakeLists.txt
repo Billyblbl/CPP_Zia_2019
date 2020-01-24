@@ -13,10 +13,22 @@ endif(UNIX)
 
 #CONAN
 
+find_program(conan conan)
+
+if(NOT EXISTS ${conan})
+	message(FATAL_ERROR "Conan is required.")
+endif()
+
+message(STATUS "Running conan")
+execute_process(COMMAND ${conan} install --build=missing ${CMAKE_SOURCE_DIR} RESULT_VARIABLE return_code)
+
+if(NOT ${return_code} EQUAL 0)
+	message(FATAL_ERROR "conan install command failed.")
+endif()
+
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 include_directories(${CMAKE_INCLUDE_PATH} ${CONAN_INCLUDE_DIRS} include)
-
 
 #SOURCE FETCHERS
 

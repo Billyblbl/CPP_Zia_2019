@@ -35,4 +35,5 @@
 *.loc
 **/local
 **/.vscode
+**/.vs
 **/build
