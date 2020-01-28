@@ -6,4 +6,6 @@ else
 	buildType=$1
 fi
 
-git submodule update --init --recursive && mkdir -p build && cd build && conan install --build=missing .. && cmake .. -DCMAKE_BUILD_TYPE=$buildType
+git submodule update --init --recursive && mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=$buildType
+
+#conan install --build=missing .. && 
